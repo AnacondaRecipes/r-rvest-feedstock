@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: rvest_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/rvest_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rvest/rvest_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: testthat, knitr, png, stringi (>= 0.3.1), rmarkdown, covr
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
